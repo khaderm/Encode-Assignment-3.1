@@ -16,7 +16,7 @@ contract Ballot {
     }
 
     // A dynamically-sized array of `Proposal` structs.
-    uint256 blockTarget;
+    uint256 public blockTarget;
     IMyToken public tokenContract;
     Proposal[] public proposals;
     mapping(address => uint256) public votingPowerSpent;
