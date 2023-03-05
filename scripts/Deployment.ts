@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
+import { Ballot__factory } from "../typechain-types";
 import * as dotenv from 'dotenv';
-import { MyToken__factory } from "../typechain-types/factories/contracts/MyToken__factory";
 dotenv.config();
 
 function convertStringArrayToBytes32(array: string[]) {
@@ -45,7 +45,7 @@ async function main() {
         console.log(`Proposal N. ${index + 1}: ${element}`);
     });
 
-    const tokenBallotContractFactory = new MyToken__factory(signer);
+    const tokenBallotContractFactory = new Ballot__factory(signer);
     const contract = await tokenBallotContractFactory.deploy(convertStringArrayToBytes32(proposals), tokenAddress, blockNumbers);
     const deployTxReceipt = await contract.deployTransaction.wait();
     console.log(
