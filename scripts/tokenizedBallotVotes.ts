@@ -36,7 +36,7 @@ async function main() {
         console.log(`Proposal N. ${index + 1}: ${element}`);
     });
 
-    const tokeneziedBalloVotes = new TokenizedBallot_factory(signer);
+    const tokenizedBallotVotes = new TokenizedBallot_factory(signer);
     console.log("Deploying ballot contract...");
     const ballotContract = await TokenizedBallot_factory.deploy(
         convertStringArrayToBytes32(proposals)
