@@ -23,11 +23,8 @@ async function main() {
     }
 
     const wallet =  new ethers.Wallet(privateKey);
-
     const signer = wallet.connect(provider); 
-
     const balance = await signer.getBalance();
-
     console.log(`The account ${signer.address} has a balance of ${balance} Wei`)
     
     const tokenAddress = "0x85397ac612F0761C17c2C7e1f7DFDaA7a876517B"
