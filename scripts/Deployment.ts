@@ -29,7 +29,9 @@ async function main() {
     const balance = await signer.getBalance();
 
     console.log(`The account ${signer.address} has a balance of ${balance} Wei`)
-
+    
+    const tokenAddress = "0x85397ac612F0761C17c2C7e1f7DFDaA7a876517B"
+    const blockNumbers = "8566604"
 
     const args = process.argv;
     const proposals = args.slice(2);
@@ -44,10 +46,10 @@ async function main() {
     });
 
     const tokenBallotContractFactory = new MyToken__factory(signer);
-    const contract = await tokenBallotContractFactory.deploy();
+    const contract = await tokenBallotContractFactory.deploy(convertStringArrayToBytes32(proposals), tokenAddress, blockNumbers);
     const deployTxReceipt = await contract.deployTransaction.wait();
     console.log(
-        `The ERC20Votes contract was deployed at the adddress ${contract.address} at the block ${deployTxReceipt.blockNumber} and unlock time of`
+        `The ERC20Votes contract was deployed at the adddress ${contract.address} at the block ${deployTxReceipt.blockNumber}.`
         );
 }
 
