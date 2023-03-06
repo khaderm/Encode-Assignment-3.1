@@ -31,7 +31,7 @@ async function main() {
     console.log("Deploying ballot contract...");
 
     // Replace this with the address of the deployed contract you want to vote on
-    const deployedContractAddress = "0xC2D690ceb27E3d6f4CcF9a580DeBef225B09c14F";
+    const deployedContractAddress = "0x7D841FAF3c2bE1c80E9AF1753f2C25139dd56123";
     const ballotContractFactory = new Ballot__factory(signer);
     console.log("Deploying ballot contract...");
     const ballotContract = ballotContractFactory.attach(deployedContractAddress);
